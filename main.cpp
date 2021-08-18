@@ -63,7 +63,7 @@ if (balance==0){
             // number of coin and note in resipt 
             cout <<"--------Number Of Coin And Notes--------"<<endl;
             cout<<endl;
-           for(int i=0;i<maxIndexOfCoinAndNoteArray;i++){
+           for(int i=0;i<=maxIndexOfCoinAndNoteArray;i++){
                if(coinAndNoteCount[i]==0){
                    continue;
                }
