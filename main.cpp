@@ -1,6 +1,11 @@
 #include <iostream>
 using namespace std;
 
+// Student Number        => IM/2019/020
+// Student Name             => Ishan Ravindu
+// Assignment Number => 1
+// Due Date                       =>23rd August 2021
+
 int main(){
 const int allAvailbaleCoinAndNote[11] = {1,2,5,10,20,50,100,500,1000,2000,5000};
 int coinAndNoteCount[11]={0,0,0,0,0,0,0,0,0,0,0};
@@ -20,7 +25,7 @@ cout<< "Error (enter positive number)" << endl;
 
 
 while (true){
-    cout << "Enter Tender Price"<<endl;
+    cout << "Enter Cash "<<endl;
     cin >> cash;
    if(cash>=total){
        break;
@@ -55,6 +60,7 @@ if (balance==0){
             cout << "Cash    = RS:" << cash <<endl;
             cout <<"Balance = Rs:"<<cash-total <<endl;
             cout<<endl;
+            // number of coin and note in resipt 
             cout <<"--------Number Of Coin And Notes--------"<<endl;
             cout<<endl;
            for(int i=0;i<maxIndexOfCoinAndNoteArray;i++){
@@ -66,6 +72,7 @@ if (balance==0){
            }
              cout<<endl;
              cout <<"----------------------------------------"<<endl;
+              //end- number of coin and note in resipt 
              cout << "################################"<<endl;
              // end of resipt section 
              break;
