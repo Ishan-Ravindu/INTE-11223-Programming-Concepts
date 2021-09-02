@@ -23,7 +23,17 @@ int main()
          << endl;
 
     cout << "Question 2" << endl;
-    int answer2 = timeConvertToSeconds(1, 1, 1);
+    int answer2;
+    int time1 = timeConvertToSeconds(1, 1, 1);
+    int time2 = timeConvertToSeconds(2, 5, 4);
+
+    if (time1 > time2)
+        answer2 = time1 - time2;
+    else if (time1 < time2)
+        answer2 = time2 - time1;
+    else
+        answer2 = 0;
+
     cout << answer2 << "\n"
          << endl;
 
