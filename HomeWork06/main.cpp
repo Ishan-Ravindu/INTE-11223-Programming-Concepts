@@ -7,14 +7,14 @@ using std::endl;
 
 int selectAdminOrCustomer(void); //if user customer return 0 , if user admin return 1
 int getCoinInputAndCalculateTotal(void);
-void calculateBalance(int); //from assignment 1
+void calculateBalance(int, int coinBucketCount[4]); //from assignment 1
 
 int main()
 {
     int numberOfItems = 5;
     int itemArray[numberOfItems] = {1, 2, 3, 4, 5};
     int priceArray[numberOfItems] = {12, 15, 25, 35, 16};
-    const int allSuportedCoin[4] = {1, 2, 5, 10};
+    // const int allSuportedCoin[4] = {1, 2, 5, 10};
     int coinBucketCount[4] = {100, 100, 100, 100};
     int customerChoice;
     int customerSelectedItemPrice;
@@ -46,7 +46,11 @@ int main()
             customerInputCoinTotal = getCoinInputAndCalculateTotal();
             balance = customerInputCoinTotal - customerSelectedItemPrice;
 
-            calculateBalance(balance);
+            calculateBalance(balance, coinBucketCount);
+            cout << coinBucketCount[0] << endl;
+            cout << coinBucketCount[1] << endl;
+            cout << coinBucketCount[2] << endl;
+            cout << coinBucketCount[3] << endl;
         }
         else if (selectedOption == 1)
         {
@@ -96,7 +100,7 @@ int getCoinInputAndCalculateTotal()
     return total;
 }
 
-void calculateBalance(int balance)
+void calculateBalance(int balance, int coinBucketCount[4])
 {
     const int allAvailbaleCoinAndNote[4] = {1, 2, 5, 10};
     int coinAndNoteCount[4] = {0, 0, 0, 0};
@@ -135,6 +139,7 @@ void calculateBalance(int balance)
                 else
                 {
                     coinAndNoteCount[count]++;
+                    coinBucketCount[count]--;
                     balance -= allAvailbaleCoinAndNote[count];
                 }
             }
