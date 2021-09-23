@@ -7,57 +7,112 @@ using std::endl;
 
 int selectAdminOrCustomer(void); //if user customer return 0 , if user admin return 1
 int getCoinInputAndCalculateTotal(void);
-void calculateBalance(int, int coinBucketCount[4]); //from assignment 1
+int calculateBalance(int, int coinBucketCount[4]); //from assignment 1
 
 int main()
 {
     int numberOfItems = 5;
     int itemArray[numberOfItems] = {1, 2, 3, 4, 5};
     int priceArray[numberOfItems] = {12, 15, 25, 35, 16};
-    // const int allSuportedCoin[4] = {1, 2, 5, 10};
     int coinBucketCount[4] = {100, 100, 100, 100};
     int customerChoice;
+    int adminChoice;
     int customerSelectedItemPrice;
     int customerInputCoinTotal;
     int balance;
     while (true)
     {
-        int selectedOption = selectAdminOrCustomer();
+        int selectedOption = selectAdminOrCustomer(); //select customer or admin
+
+        // ----------------------------------------------------------cutomer section---------------------------------------------------
         if (selectedOption == 0)
         {
-            cout << "Welcome Custermer" << endl;
+            cout << "\n Welcome Custermer \n"
+                 << endl;
             cout << "-------select your Item-------" << endl;
             for (int i = 1; i <= numberOfItems; i++)
             {
                 cout << "for item " << i << " (price Rs:" << priceArray[i - 1] << ")"
                      << " Enter number " << i << endl;
             }
+            // #####################validate customer choice###################
             while (true)
             {
-                cout << "Now Enter your choice =: ";
+                cout << "\n Now Enter your choice =: ";
                 cin >> customerChoice;
                 if (customerChoice > 0 && customerChoice <= numberOfItems)
+                {
                     customerSelectedItemPrice = priceArray[customerChoice - 1];
-                break;
-                cout << "Enter Valid Number" << endl;
+                    break;
+                }
+                cout << "\n --Enter Valid Number--" << endl;
             }
-            cout << "Now Input Your Coin " << endl;
+            // #####################end of validate customer choice###################
 
+            cout << "\n --Now Input Your Coin-- \n"
+                 << endl;
             customerInputCoinTotal = getCoinInputAndCalculateTotal();
+            if (customerInputCoinTotal < customerSelectedItemPrice)
+            {
+                cout << "\n need more RS: " << customerSelectedItemPrice - customerInputCoinTotal << endl;
+                customerInputCoinTotal += getCoinInputAndCalculateTotal();
+            }
             balance = customerInputCoinTotal - customerSelectedItemPrice;
 
-            calculateBalance(balance, coinBucketCount);
-            cout << coinBucketCount[0] << endl;
-            cout << coinBucketCount[1] << endl;
-            cout << coinBucketCount[2] << endl;
-            cout << coinBucketCount[3] << endl;
+            int transcationStatus = calculateBalance(balance, coinBucketCount);
+            if (transcationStatus == 0)
+            {
+                cout << "if your admin please refill coin bucket" << endl;
+                break;
+            }
         }
+        // --------------------------------------------------------end of cutomer section---------------------------------------------------
+
+        // --------------------------------------------------------admin section--------------------------------------------------------
         else if (selectedOption == 1)
         {
-            cout << "Welcome Admin" << endl;
+            // ####################validate admin choice#####################
+            while (true)
+            {
+                cout << "\n Welcome Admin \n"
+                     << endl;
+                cout << "Press 1 for bucket balance" << endl;
+                cout << "Press 2 for refill bucket" << endl;
+                cout << "press 3 for terminate programme" << endl;
+                cout << "\n Now Enter Your Choice =: ";
+                cin >> adminChoice;
+                if (adminChoice == 1 || adminChoice == 2 || adminChoice == 3)
+                    break;
+                cout << "\n --Enter Valid input--" << endl;
+            }
+            // ###################end of validate admin choice###################
+            if (adminChoice == 1)
+            {
+                cout << "\n--------------Bucket Balance------------------------\n"
+                     << endl;
+                cout << "Rs 1 coin " << coinBucketCount[0] << endl;
+                cout << "Rs 2 coin " << coinBucketCount[1] << endl;
+                cout << "Rs 5 coin " << coinBucketCount[2] << endl;
+                cout << "Rs 10 coin " << coinBucketCount[3] << endl;
+                cout << "\n-----------------------------------------------------\n"
+                     << endl;
+            }
+            else if (adminChoice == 2)
+            {
+                coinBucketCount[0] = 100;
+                coinBucketCount[2] = 100;
+                coinBucketCount[3] = 100;
+                coinBucketCount[4] = 100;
+                cout << "\n ------bucked filled------ \n"
+                     << endl;
+            }
+            else if (adminChoice == 3)
+            {
+                break;
+            }
         }
 
-        break;
+        // ----------------------------------------------------- end of admin section--------------------------------------------------------
     }
 }
 
@@ -100,7 +155,7 @@ int getCoinInputAndCalculateTotal()
     return total;
 }
 
-void calculateBalance(int balance, int coinBucketCount[4])
+int calculateBalance(int balance, int coinBucketCount[4])
 {
     const int allAvailbaleCoinAndNote[4] = {1, 2, 5, 10};
     int coinAndNoteCount[4] = {0, 0, 0, 0};
@@ -113,7 +168,18 @@ void calculateBalance(int balance, int coinBucketCount[4])
         {
             if (balance == 0)
             {
-                cout << "--------Number Of Coin --------" << endl;
+                for (int i = 0; i < 4; i++)
+                {
+                    if (coinBucketCount[i] <= 0)
+                    {
+
+                        cout << "\n transcation faild take your coin back \n"
+                             << endl;
+                        return 0;
+                    }
+                }
+
+                cout << "--------get your balance Coin --------" << endl;
                 cout << endl;
                 for (int i = 0; i <= maxIndexOfCoinAndNoteArray; i++)
                 {
@@ -147,6 +213,7 @@ void calculateBalance(int balance, int coinBucketCount[4])
     }
     else
     {
-        cout << "All Done There Is No Balance" << endl;
+        cout << "\n --All Done There Is No Balance \n--" << endl;
     }
+    return 1;
 }
