@@ -3,6 +3,11 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+/*     IM/2019/020
+        ishan ravindu
+        https://github.com/ishan27596/INTE-11223-Programming-Concepts.git
+*/
+
 #define ADMINPASSWORD 123;
 
 int selectAdminOrCustomer(void); //if user customer return 0 , if user admin return 1
