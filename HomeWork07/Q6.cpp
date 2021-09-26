@@ -8,17 +8,17 @@ using std::string;
 int getInputAndSelectCity(string *);
 
 int main() {
-  /*              kandy    colombo     Dabulla    Galle   Jaffan
+  /*      kandy   colombo   Dabulla   Galle   Jaffan
 
-kandy       |     0      |      223       |       167     |    229   |  399
+kandy   |     0  | 223    |  167   |   229   |  399
 
-Colombo |   223    |       0          |       170     |     129   |  395
+Colombo |   223  |   0    |  170   |   129   |  395
 
-Dabulla    |   114    |      167        |        0       |     224   |   217
+Dabulla |   114  |  167   |   0    |   224   |   217
 
-Galle         |  134      |     124      |     111       |      0       | 228
+Galle   |  134   |  124   |  111   |    0    | 228
 
-Jaffan       |  294      |      234      |    129      |      239   |    0
+Jaffan  |  294    |  234  |  129   |    239   |    0
 
     */
   int cityDistanceArray[5][5] = {{0, 223, 167, 229, 399},
