@@ -36,7 +36,8 @@ Jaffan  |  294    |  234  |  129   |    239   |    0
   previosCityIndexNumber = getInputAndSelectCity(cityNameArray);
 
   while (true) {
-    int terminateKeyInput;
+    int terminateKeyInput;  // for end program
+
     currentCityIndexNumber = previosCityIndexNumber;
     cout << "\nselect your next city\n" << endl;
     currentCityIndexNumber = getInputAndSelectCity(cityNameArray);
@@ -44,6 +45,7 @@ Jaffan  |  294    |  234  |  129   |    239   |    0
         totalDistance +
         cityDistanceArray[previosCityIndexNumber][currentCityIndexNumber];
     cout << "\n(Enter '0' for end trip )or (enter any number to continue)=: ";
+
     cin >> terminateKeyInput;
     if (terminateKeyInput == 0) break;
   }
