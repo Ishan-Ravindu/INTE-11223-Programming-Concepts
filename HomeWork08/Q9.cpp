@@ -9,9 +9,10 @@ int main() {
 
   int numberArray[numberArraySize];
 
+  // add array element using pointers
   for (int i = 0; i < numberArraySize; i++) {
     cout << "Enter number " << i + 1 << "=: ";
-    cin >> numberArray[i];
+    cin >> *(numberArray + i);
   }
 
   // print array element using pointers

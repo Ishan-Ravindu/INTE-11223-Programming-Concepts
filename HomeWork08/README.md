@@ -10,4 +10,4 @@
 ## 9. Write a program to store n elements in an array and print the elements using pointer 
 ## 10. Write a program to Calculate the length of the string using a pointer 
 ## 11. Write a program to count the number of vowels and consonants in a string using a pointer 
-## 12. Write a program in C to sort an array using Pointer
+## 12. Write a program in C++ to sort an array using Pointer

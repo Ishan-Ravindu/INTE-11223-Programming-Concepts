@@ -3,11 +3,13 @@
 using namespace std;
 
 void findMinAndMax(int* max, int* min, int numberArray[], int arrayLength);
+
 int main() {
-  int numberArray[3] = {10, -17, 27};
+  int arrayLength = 3;
+  int numberArray[arrayLength] = {10, -17, 27};
   int max;
   int min;
-  findMinAndMax(&max, &min, numberArray, 3);
+  findMinAndMax(&max, &min, numberArray, arrayLength);
   cout << "Max : " << max << endl;
   cout << "Min " << min << endl;
 }
