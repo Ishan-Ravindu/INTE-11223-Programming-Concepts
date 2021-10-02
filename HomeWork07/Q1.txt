@@ -74,7 +74,7 @@
 
                      for (int i = 0; i < 2; i++)
                      {
-                         std::cout<<t[i][4]<std::endl;
+                         std::cout<<t[i][3]<std::endl;
                      }
 
  m) Write a series of statements that print the array t in tabular format. 
@@ -83,7 +83,7 @@ List the column subscripts as headings across the top and list the row
 
                          for (int i = 0; i < 2; i++)
                          {
-                            for (int j = 0; j ; j++)
+                            for (int j = 0; j<5 ; j++)
                             {
                                 std::cout<<t[i][j]<<"    ";
                             }
