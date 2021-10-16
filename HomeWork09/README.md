@@ -39,15 +39,25 @@ Enter a string: “my dog at my homework”
 Letter frequency 
 
 a 1 
+
 d 1 
+
 e 1 
+
 g 1 
+
 h 1 
+
 k 1 
+
 m 3 
+
 o 3 
+
 r 1 
+
 t 1 
+
 w 1 
-y 2 
-   
+
+y 2    
