@@ -62,7 +62,7 @@ The content of the file test.txt is:
 test line 1
 test line 3
 test line 4
-8. Write a program to replace a specific line with another text in a file.
+## 8. Write a program to replace a specific line with another text in a file.
 Assume that the content of the file test.txt is:
 test line 1
 test line 2
@@ -78,7 +78,7 @@ test line 1
 Yes, I am the new text instead of test line 2
 test line 3
 test line 4 
-9. Write a program to copy a file in another name.
+## 9. Write a program to copy a file in another name.
 Assume that the content of the file test.txt is:
 test line 1
 test line 2
@@ -89,7 +89,7 @@ Input the source file name : test.txt
 Input the new file name : test1.txt
 Expected Output:
 The file test.txt copied successfully in the file test1.txt.
-10. Write a program to merge two files and write it in a new file.
+## 10. Write a program to merge two files and write it in a new file.
 The content of the file test.txt is:
 This is the file test.txt.
 The content of the file test1.txt is:
