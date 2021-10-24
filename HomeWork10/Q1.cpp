@@ -11,5 +11,6 @@ int main() {
     cout << "Input a sentence for the file :";
     cin >> text;
     myFile << text;
+    myFile.close();
   }
 }
